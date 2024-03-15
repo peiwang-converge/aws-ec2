@@ -1,6 +1,11 @@
 # Define the name of the GitHub Action workflow
 name: Create an ec2 instance
-
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  workflow_dispatch:
 
 # Jobs to be executed in this workflow
 jobs:
