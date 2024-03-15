@@ -1,11 +1,22 @@
 # Define the name of the GitHub Action workflow
 name: Create an ec2 instance
+# This workflow is manually triggered using the GitHub Actions UI
 on:
-  push:
-    branches:
-      - 'master'
-  pull_request:
   workflow_dispatch:
+    # Define inputs that are required for the manual trigger
+    inputs:
+      instanceName:
+        description: 'Name of the AWS Instance'  # What's this input for?
+        required: true
+      awsRegion:
+        description: 'AWS Region for the instance'
+        required: true
+      instanceType:
+        description: 'AWS instance type'
+        required: true
+      action:
+        description: 'Action to perform (apply/destroy)'
+        required: true
 
 # Jobs to be executed in this workflow
 jobs:
